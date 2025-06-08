@@ -1,0 +1,24 @@
+version: 2
+
+macros:
+  - name: audit__persist_test_results
+    description: >
+      Populates a table with aggregated test results per batch, including
+      failure/success rates and test metadata (model, column, test name). 
+      Designed to track test performance over time in a persistent audit table.
+    arguments:
+      - name: audit_schema
+        type: string
+        description: >
+          The schema where the audit table will be created or updated.
+          Default is 'audit__reports'.
+      - name: audit_table_name
+        type: string
+        description: >
+          The name of the table where test results will be written. 
+          Default is 'audit_report'.
+      - name: batch_id_column
+        type: string
+        description: >
+          The name of the column used to group test results into batches, 
+          typically a timestamp or ID column. Default is 'batch_id'.

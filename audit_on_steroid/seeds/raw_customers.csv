@@ -1,0 +1,4 @@
+customer_id,customer_name,email
+102,Sara,sara@example.com
+103,Ali,ali@example.com
+101,Ali,invalid_email.com

@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: mart_order_summary_wap
+    config:
+      tags: ['wap']
+    description: "Customer-level order aggregation"
+    columns:
+      - name: customer_id
+        data_tests: [audit__not_null, audit__unique]
+      
+      - name: total_spent
+        data_tests: [audit__not_null, audit__greater_than_zero]
+      
+      - name: first_order
+        data_tests:
+          - audit__not_null
+      
+      - name: email
+        data_tests: 
+          - audit__consistency:
+              regex: "^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$"
